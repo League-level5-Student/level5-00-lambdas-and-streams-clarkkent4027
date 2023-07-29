@@ -47,14 +47,15 @@ public class LambdaButtons implements ActionListener {
 			System.out.println("Your added number is " + (A + B) + "!");
 		}
 		if (arg0.getSource() == randNumber) {
-			Random rrr = new Random(100);
-			System.out.println(rrr.nextInt());
+			Random r = new Random();
+			 System.out.println(r.nextInt(1000));
+	
 		}
 		if (arg0.getSource() == tellAJoke) {
 			Scanner Scammer = new Scanner(System.in);
-			System.out.println("What kind of tea is hard to swallow??");
+			System.out.println("What do lawyers wear to court??");
 			String answer = Scammer.nextLine();
-			if (answer.equals("Reality")) {
+			if (answer.equalsIgnoreCase("Lawsuits")) {
 				System.out.println("Good Job, you got it! Want to hear another joke? ");
 				String again = Scammer.nextLine();
 if (again.equals("Yes")) {
@@ -63,7 +64,7 @@ if (again.equals("Yes")) {
 	System.out.println("No prob. Have a wonderful day friend!");
 }
 			} else {
-				System.out.println("Reality! hahahaha. Want anotha?");
+				System.out.println("Lawsuits! hahahaha. Want anotha?");
 				String wrong = Scammer.nextLine();
 				if (wrong.equals("Yes")) {
 					System.out.println("What did the monkey say to the banana?");
