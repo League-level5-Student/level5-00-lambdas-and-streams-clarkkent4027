@@ -23,6 +23,7 @@ public class StreamSorter {
     int[] sortArray(int[] arr) {
         return null;
     }
+    Stream <int> streamer = new Arrays.stream(sortArray);
 
     List<String> sortList(List<String> list) {
         return null;

@@ -58,7 +58,7 @@ public class LambdaButtons implements ActionListener {
 			if (answer.equalsIgnoreCase("Lawsuits")) {
 				System.out.println("Good Job, you got it! Want to hear another joke? ");
 				String again = Scammer.nextLine();
-if (again.equals("Yes")) {
+if (again.equalsIgnoreCase("Yes")) {
 	System.out.println("Well, I'm already looking at one! hahaha");
 }else {
 	System.out.println("No prob. Have a wonderful day friend!");
@@ -66,15 +66,17 @@ if (again.equals("Yes")) {
 			} else {
 				System.out.println("Lawsuits! hahahaha. Want anotha?");
 				String wrong = Scammer.nextLine();
-				if (wrong.equals("Yes")) {
+				if (wrong.equalsIgnoreCase("Yes")) {
 					System.out.println("What did the monkey say to the banana?");
 					String appeal = Scammer.nextLine();
-					if (appeal.equals("You're appealing! ")) {
+					if (appeal.equalsIgnoreCase("You're appealing!")) {
 						System.out.println("wow, you're good.");
 					}
 					else {
 						System.out.println("The answer was: You're appealing! hahahaha");
 					}
+				}else {
+					System.out.println("That's fine with me. See ya later buddy!");
 				}
 			}
 		}
