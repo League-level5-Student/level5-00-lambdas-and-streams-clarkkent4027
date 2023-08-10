@@ -6,7 +6,9 @@ import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.function.IntConsumer;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Test;
@@ -20,49 +22,49 @@ import org.junit.jupiter.api.Test;
  */
 public class StreamSorter {
 
-    int[] sortArray(int[] arr) {
-        return null;
-    }
-    Stream <int> streamer = new Arrays.stream(sortArray);
+	int[] sortArray(int[] arr) {
 
-    List<String> sortList(List<String> list) {
-        return null;
-    }
-    
-    // =================== DO NOT MODIFY THE CODE BELOW ======================
-    
-    @Test
-    void TestSort1(){
-        // 50 random ints from 0 to 100
-        int[] nums = new Random().ints(50, 0, 101)
-                                 .toArray();
-        
-        nums = sortArray(nums);
-        
-        Arrays.stream(nums).forEach((i) -> System.out.print(i + " "));
-        
-        for(int i = 0; i < nums.length - 1; i++) {
-            if(nums[i] > nums[i + 1] ) {
-                System.err.println("nums[" + i + "] = " + nums[i] + "> nums[" + (i+1) + "]");
-                assertTrue(false);
-            }
-        }
+		return Arrays.stream(arr).sorted().toArray();
+	}
+
+	List<String> sortList(List<String> list) {
+    	
+        return list.stream().sorted((list1, list2) -> list1.compareTo(list2)).collect(Collectors.toList());
+
     }
 
-    @Test
-    void TestSort2(){
-        List<String> list = Stream.of("these", "are", "just", "some", "random", "strings")
-                                  .collect(Collectors.toList());
-        
-        list = sortList(list);
-        System.out.println();
-        System.out.println(list);
-        
-        assertEquals(list.get(0), "are");
-        assertEquals(list.get(1), "just");
-        assertEquals(list.get(2), "random");
-        assertEquals(list.get(3), "some");
-        assertEquals(list.get(4), "strings");
-        assertEquals(list.get(5), "these");
-    }
+	// =================== DO NOT MODIFY THE CODE BELOW ======================
+
+	@Test
+	void TestSort1() {
+		// 50 random ints from 0 to 100
+		int[] nums = new Random().ints(50, 0, 101).toArray();
+
+		nums = sortArray(nums);
+
+		Arrays.stream(nums).forEach((i) -> System.out.print(i + " "));
+
+		for (int i = 0; i < nums.length - 1; i++) {
+			if (nums[i] > nums[i + 1]) {
+				System.err.println("nums[" + i + "] = " + nums[i] + "> nums[" + (i + 1) + "]");
+				assertTrue(false);
+			}
+		}
+	}
+
+	@Test
+	void TestSort2() {
+		List<String> list = Stream.of("these", "are", "just", "some", "random", "strings").collect(Collectors.toList());
+
+		list = sortList(list);
+		System.out.println();
+		System.out.println(list);
+
+		assertEquals(list.get(0), "are");
+		assertEquals(list.get(1), "just");
+		assertEquals(list.get(2), "random");
+		assertEquals(list.get(3), "some");
+		assertEquals(list.get(4), "strings");
+		assertEquals(list.get(5), "these");
+	}
 }
